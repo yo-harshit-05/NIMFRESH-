@@ -1,0 +1,56 @@
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family:'Poppins', sans-serif; background:#fefefe; color:#333; overflow-x:hidden;}
+
+/* Navbar */
+header {position:fixed; top:0; width:100%; background:rgba(255,255,255,0.9); display:flex; justify-content:space-between; align-items:center; padding:20px 60px; z-index:1000; box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+header .logo {font-size:1.8rem; font-weight:700; color:#2e7d32;}
+header ul {list-style:none; display:flex; gap:30px;}
+header ul li a {text-decoration:none; color:#333; font-weight:600; transition:color 0.3s;}
+header ul li a:hover {color:#2e7d32;}
+
+/* Hero */
+.hero {height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:linear-gradient(120deg,#2e7d32,#66bb6a); color:white; text-align:center; position:relative; overflow:hidden;}
+.hero::after {content:''; position:absolute; top:0; left:0; width:100%; height:100%; background:url('https://cdn.pixabay.com/photo/2021/01/21/14/12/food-5937505_1280.jpg') center/cover; opacity:0.15; animation: zoom 25s infinite linear;}
+@keyframes zoom {0%{transform:scale(1);} 100%{transform:scale(1.2);}}
+.hero h1 {font-size:3.5rem; z-index:1; animation: fadeDown 1s ease forwards;}
+.hero p {margin-top:20px; font-size:1.2rem; z-index:1; max-width:600px; animation: fadeUp 1.5s ease forwards;}
+.hero .btn {margin-top:30px; padding:14px 34px; background:#fff; color:#2e7d32; border:none; border-radius:50px; font-weight:600; cursor:pointer; transition:all 0.3s; z-index:1;}
+.hero .btn:hover {transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+
+@keyframes fadeDown {from{opacity:0; transform:translateY(-30px);} to{opacity:1; transform:translateY(0);}}
+@keyframes fadeUp {from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);}}
+
+/* Features */
+section {padding:100px 80px; text-align:center;}
+h2 {font-size:2.8rem; color:#2e7d32; margin-bottom:50px;}
+.features {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px;}
+.feature-card {background:#fff; padding:40px 20px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.05); transition:transform 0.4s, box-shadow 0.4s;}
+.feature-card:hover {transform:translateY(-10px); box-shadow:0 12px 25px rgba(0,0,0,0.15);}
+.feature-card .icon {font-size:3rem; margin-bottom:15px; color:#4caf50; animation:pulse 2s infinite;}
+@keyframes pulse {0%,100%{transform:scale(1);} 50%{transform:scale(1.1);}}
+
+/* Workflow */
+.workflow {background:#f5fff7;}
+.steps {display:flex; flex-wrap:wrap; justify-content:center; gap:40px;}
+.step {background:white; padding:30px; border-radius:15px; width:250px; box-shadow:0 5px 15px rgba(0,0,0,0.05); transition:transform 0.3s;}
+.step:hover {transform:translateY(-10px);}
+.step-number {background:#2e7d32; color:white; width:50px; height:50px; border-radius:50%; display:flex; justify-content:center; align-items:center; margin:0 auto 15px; font-weight:700;}
+
+/* Dashboard */
+.dashboard {background:linear-gradient(135deg,#a5d6a7,#e8f5e9);}
+.dashboard img {width:80%; max-width:600px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.1); transition:transform 0.5s;}
+.dashboard img:hover {transform:scale(1.05);}
+
+/* Footer */
+footer {background:#2e7d32; color:white; text-align:center; padding:60px 20px; position:relative; overflow:hidden;}
+footer p {margin:10px 0;}
+footer::before {content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle,rgba(255,255,255,0.15) 0%,transparent 60%); animation: rotateBg 20s linear infinite;}
+@keyframes rotateBg {0%{transform:rotate(0);} 100%{transform:rotate(360deg);}}
+
+/* Responsive */
+@media(max-width:768px){
+  header {padding:20px 30px;}
+  .hero h1 {font-size:2.5rem;}
+  section {padding:80px 40px;}
+  .steps {flex-direction:column; align-items:center;}
+}
