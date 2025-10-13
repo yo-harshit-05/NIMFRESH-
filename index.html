@@ -1,63 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nimfresh | Smart Food Monitoring</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/scrollreveal"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NimFresh - Connect Your Device</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div class="logo">Nimfresh</div>
-    <ul>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#workflow">Workflow</a></li>
-      <li><a href="#dashboard">Dashboard</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </header>
+    <div class="landing-container">
+        <!-- Animated Background -->
+        <div class="animated-bg">
+            <div class="floating-icon"><i class="fas fa-apple-alt"></i></div>
+            <div class="floating-icon"><i class="fas fa-carrot"></i></div>
+            <div class="floating-icon"><i class="fas fa-fish"></i></div>
+            <div class="floating-icon"><i class="fas fa-cheese"></i></div>
+        </div>
 
-  <section class="hero">
-    <h1>Keep It Fresh, Keep It Smart</h1>
-    <p>AI-powered food monitoring for communities, cold storages, and restaurants — because every meal deserves freshness.</p>
-    <button class="btn">Get Started</button>
-  </section>
+        <div class="content-wrapper">
+            <!-- Big Logo Section -->
+            <div class="logo-section">
+                <img src="images/logo.png" alt="NimFresh Logo" class="logo">
+                <h1 class="logo-title">NimFresh</h1>
+                <p class="tagline">Bring Freshness To Your Life</p>
+            </div>
 
-  <section id="features">
-    <h2>Our Smart Features</h2>
-    <div class="features">
-      <div class="feature-card"><div class="icon">🌡️</div><h3>Live Temperature Tracking</h3><p>Monitors temperature in real-time to ensure ideal food storage conditions.</p></div>
-      <div class="feature-card"><div class="icon">⚗️</div><h3>Gas Detection</h3><p>Detects harmful gases and alerts you before spoilage happens.</p></div>
-      <div class="feature-card"><div class="icon">📱</div><h3>Mobile App Sync</h3><p>Stay updated on food freshness and expiry alerts directly from your phone.</p></div>
-      <div class="feature-card"><div class="icon">🧠</div><h3>AI Prediction</h3><p>Predicts expiry dates and generates auto-refill lists to save time and reduce waste.</p></div>
-      <div class="feature-card"><div class="icon">🔔</div><h3>Smart Notifications</h3><p>Get instant notifications for temperature spikes or spoilage detection.</p></div>
-      <div class="feature-card"><div class="icon">📊</div><h3>Visual Analytics</h3><p>Beautiful charts showing freshness levels, waste reduction stats, and inventory trends.</p></div>
+            <!-- Welcome Section -->
+            <div class="welcome-card">
+                <div class="device-animation">
+                    <div class="device-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="connection-pulse"></div>
+                </div>
+                <h2>Welcome to Smart Food Monitoring</h2>
+                <p>Scan successful! Your NimFresh device is ready to connect.</p>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="registration-card">
+                <h3>Setup Your Device</h3>
+                <form id="registration-form" class="registration-form">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-home"></i>
+                        <select id="location" required>
+                            <option value="">Select storage type</option>
+                            <option value="home">Home Refrigerator</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="cold-storage">Cold Storage</option>
+                            <option value="community">Community Kitchen</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fas fa-qrcode"></i>
+                        <input type="text" id="device-id" value="NF-7342-8891" readonly>
+                    </div>
+
+                    <button type="submit" class="connect-btn">
+                        <i class="fas fa-plug"></i>
+                        Connect & Start Monitoring
+                    </button>
+                </form>
+            </div>
+
+            <!-- Security Note -->
+            <div class="security-note">
+                <i class="fas fa-shield-alt"></i>
+                <span>Your data is secure and private</span>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <section id="workflow" class="workflow">
-    <h2>How It Works</h2>
-    <div class="steps">
-      <div class="step"><div class="step-number">1</div><p>Install sensors in cold storage or community fridges.</p></div>
-      <div class="step"><div class="step-number">2</div><p>Connect sensors with Nimfresh app for real-time monitoring.</p></div>
-      <div class="step"><div class="step-number">3</div><p>Receive alerts, predictions, and refill suggestions automatically.</p></div>
-    </div>
-  </section>
-
-  <section id="dashboard" class="dashboard">
-    <h2>Interactive Dashboard</h2>
-    <p>Visualize freshness and spoilage data with stunning live charts and smart insights.</p>
-    <img src="https://cdn.pixabay.com/photo/2016/12/26/17/28/dashboard-1933487_1280.png" alt="Dashboard Preview">
-  </section>
-
-  <footer id="contact">
-    <h2>Contact Us</h2>
-    <p>📧 info@nimfresh.com | 🌐 www.nimfresh.ai</p>
-    <p>© 2025 Nimfresh | Smart Food Monitoring Initial  </p>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="landing.js"></script>
 </body>
 </html>
