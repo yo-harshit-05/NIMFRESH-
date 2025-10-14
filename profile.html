@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NimFresh - Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Floating Food Icons -->
+    <div class="floating-food apple"><i class="fas fa-apple-alt"></i></div>
+    <div class="floating-food carrot"><i class="fas fa-carrot"></i></div>
+    <div class="floating-food leaf"><i class="fas fa-leaf"></i></div>
+
+    <!-- Header -->
+    <header class="profile-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="images/logo.png" alt="NimFresh Logo" class="logo">
+                <h1>My Profile</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="profile-main">
+
+        <!-- User Info Section -->
+        <section class="user-info">
+            <div class="section-title">
+                <i class="fas fa-user-circle"></i>
+                <h2>General User Information</h2>
+            </div>
+            <div class="info-card">
+                <div class="info-item">
+                    <span class="info-label"><i class="fas fa-id-badge"></i> Name:</span>
+                    <span class="info-value" id="user-name">Harshit Kumar</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label"><i class="fas fa-envelope"></i> Email:</span>
+                    <span class="info-value" id="user-email">harshit@example.com</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label"><i class="fas fa-map-marker-alt"></i> Location:</span>
+                    <span class="info-value" id="user-location">Lucknow, India</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label"><i class="fas fa-calendar-alt"></i> Joined On:</span>
+                    <span class="info-value" id="user-joined">July 2025</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Device Info Section -->
+        <section class="device-info">
+            <div class="section-title">
+                <i class="fas fa-microchip"></i>
+                <h2>Device Information</h2>
+            </div>
+            <div class="info-card">
+                <div class="info-item">
+                    <span class="info-label"><i class="fas fa-barcode"></i> Device Number:</span>
+                    <span class="info-value" id="device-number">NF-0463-4331</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label"><i class="fas fa-sync-alt"></i> Calibration Needed:</span>
+                    <span class="info-value calibration" id="calibration-date">Next in 8 months</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label"><i class="fas fa-signal"></i> Status:</span>
+                    <span class="info-value connected" id="device-status">
+                        <i class="fas fa-circle"></i> Connected
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contribution Section -->
+        <section class="contribution-info">
+            <div class="section-title">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h2>Total Contribution to Society</h2>
+            </div>
+            <div class="contribution-stats">
+                <div class="stat-box">
+                    <i class="fas fa-donate"></i>
+                    <h3>Food Donated</h3>
+                    <p><span id="food-donated">48 kg</span></p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Waste Reduced</h3>
+                    <p><span id="waste-reduced">32 kg</span></p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-people-group"></i>
+                    <h3>People Helped</h3>
+                    <p><span id="people-helped">120+</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="dashboard.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="scan.html" class="nav-item">
+            <i class="fas fa-camera"></i>
+            <span>Scan</span>
+        </a>
+        <a href="donate.html" class="nav-item">
+            <i class="fas fa-donate"></i>
+            <span>Donate</span>
+        </a>
+        <a href="profile.html" class="nav-item active">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <script src="profile.js"></script>
+</body>
+
+</html>

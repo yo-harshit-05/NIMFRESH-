@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NimFresh - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Floating Food Background Elements -->
+    <div class="floating-food carrot"><i class="fas fa-carrot"></i></div>
+    <div class="floating-food apple"><i class="fas fa-apple-alt"></i></div>
+    <div class="floating-food cheese"><i class="fas fa-cheese"></i></div>
+    <div class="floating-food fish"><i class="fas fa-fish"></i></div>
+    <div class="floating-food bread"><i class="fas fa-bread-slice"></i></div>
+    <div class="floating-food leaf"><i class="fas fa-leaf"></i></div>
+    <div class="floating-food egg"><i class="fas fa-egg"></i></div>
+    <div class="floating-food milk"><i class="fas fa-wine-bottle"></i></div>
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="images/logo.png" alt="NimFresh Logo" class="logo">
+                <div class="logo-text">
+                    <h1>NimFresh</h1>
+                    <p>Bring Freshness To Your Life</p>
+                </div>
+            </div>
+            <div class="user-welcome">
+                <span class="welcome-text" id="welcome-text">Welcome, User</span>
+                <div class="status-indicator">
+                    <div class="status-dot connected"></div>
+                    <span>Device Connected</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="quote-container">
+            <i class="fas fa-quote-left"></i>
+            <p class="quote-text">"khaane ko sambhalo, bhookh ko mitāāo, Har daane se zindāgi ka diya jalaāo."</p>
+            <i class="fas fa-quote-right"></i>
+        </div>
+    </section>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard-main">
+        <!-- Quick Stats -->
+        <section class="stats-section">
+            <!-- Sensor Readings -->
+            <div class="stat-card sensor">
+                <div class="stat-icon">
+                    <i class="fas fa-thermometer-half"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="temperature">4°C</h3>
+                    <p>Temperature</p>
+                    <div class="sensor-status optimal">Optimal</div>
+                </div>
+                <div class="stat-wave"></div>
+            </div>
+
+            <div class="stat-card sensor">
+                <div class="stat-icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="humidity">65%</h3>
+                    <p>Humidity</p>
+                    <div class="sensor-status optimal">Optimal</div>
+                </div>
+                <div class="stat-wave"></div>
+            </div>
+
+            <div class="stat-card sensor">
+                <div class="stat-icon">
+                    <i class="fas fa-weight-hanging"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="total-weight">8.2kg</h3>
+                    <p>Total Weight</p>
+                    <div class="sensor-status">Stable</div>
+                </div>
+                <div class="stat-wave"></div>
+            </div>
+        </section>
+        <section class="sensor-section">
+            <h2>Live Sensor Readings</h2>
+            <div class="sensor-grid">
+                <div class="sensor-card">
+                    <div class="sensor-header">
+                        <i class="fas fa-thermometer-half"></i>
+                        <h3>Temperature</h3>
+                    </div>
+                    <div class="sensor-value" id="live-temperature">4°C</div>
+                    <div class="sensor-range">
+                        <div class="range-bar">
+                            <div class="range-fill optimal" style="width: 40%"></div>
+                        </div>
+                        <div class="range-labels">
+                            <span>-10°C</span>
+                            <span>25°C</span>
+                        </div>
+                    </div>
+                    <div class="sensor-status optimal">
+                        <i class="fas fa-check-circle"></i>
+                        Optimal for storage
+                    </div>
+                </div>
+
+                <div class="sensor-card">
+                    <div class="sensor-header">
+                        <i class="fas fa-tint"></i>
+                        <h3>Humidity</h3>
+                    </div>
+                    <div class="sensor-value" id="live-humidity">65%</div>
+                    <div class="sensor-range">
+                        <div class="range-bar">
+                            <div class="range-fill optimal" style="width: 65%"></div>
+                        </div>
+                        <div class="range-labels">
+                            <span>0%</span>
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="sensor-status optimal">
+                        <i class="fas fa-check-circle"></i>
+                        Perfect moisture level
+                    </div>
+                </div>
+
+                <div class="sensor-card">
+                    <div class="sensor-header">
+                        <i class="fas fa-weight-hanging"></i>
+                        <h3>Total Weight</h3>
+                    </div>
+                    <div class="sensor-value" id="live-weight">8.2kg</div>
+                    <div class="sensor-trend">
+                        <i class="fas fa-arrow-down trend-down"></i>
+                        <span>0.3kg decrease today</span>
+                    </div>
+                    <div class="capacity-info">
+                        <div class="capacity-bar">
+                            <div class="capacity-fill" style="width: 45%"></div>
+                        </div>
+                        <span>45% storage used</span>
+                    </div>
+                </div>
+
+                <div class="sensor-card">
+                    <div class="sensor-header">
+                        <i class="fas fa-wind"></i>
+                        <h3>Air Quality</h3>
+                    </div>
+                    <div class="sensor-value" id="live-air-quality">Good</div>
+                    <div class="gas-levels">
+                        <div class="gas-item">
+                            <span>CO₂</span>
+                            <span class="gas-value optimal">450ppm</span>
+                        </div>
+                        <div class="gas-item">
+                            <span>Ethylene</span>
+                            <span class="gas-value optimal">Low</span>
+                        </div>
+                    </div>
+                    <div class="sensor-status optimal">
+                        <i class="fas fa-check-circle"></i>
+                        Air quality excellent
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <h2>Quick Actions</h2>
+            <div class="action-grid">
+                <a href="scan.html" class="action-card scan">
+                    <i class="fas fa-camera"></i>
+                    <span>Scan Bill</span>
+                </a>
+                <a href="upload.html" class="action-card upload">
+                    <i class="fas fa-upload"></i>
+                    <span>Upload Bill</span>
+                </a>
+                <a href="donate.html" class="action-card donate">
+                    <i class="fas fa-donate"></i>
+                    <span>Donate Food</span>
+                </a>
+                <a href="profile.html" class="action-card profile">
+                    <i class="fas fa-user"></i>
+                    <span>My Profile</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Food Items -->
+        <section class="food-section">
+            <div class="section-header">
+                <h2>Your Food Items</h2>
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Items</button>
+                    <button class="filter-btn" data-filter="fresh">Fresh</button>
+                    <button class="filter-btn" data-filter="warning">Use Soon</button>
+                    <button class="filter-btn" data-filter="danger">Discard</button>
+                </div>
+            </div>
+
+            <div class="food-items-container" id="food-items-container">
+                <!-- Food items will be loaded here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+<nav class="bottom-nav">
+    <a href="dashboard.html" class="nav-item active">
+        <i class="fas fa-home"></i>
+        <span>Dashboard</span>
+    </a>
+    <a href="scan.html" class="nav-item">
+        <i class="fas fa-camera"></i>
+        <span>Scan</span>
+    </a>
+    <a href="item.html" class="nav-item">
+        <i class="fas fa-box"></i>
+        <span>Item</span>
+    </a>
+    <a href="donate.html" class="nav-item">
+        <i class="fas fa-donate"></i>
+        <span>Donate</span>
+    </a>
+    <a href="profile.html" class="nav-item">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+    </a>
+</nav>
+  
+
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Manager - NimFresh</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #e0ffe0 0%, #f4faff 100%);
+        }
+        .item-page-container {
+            max-width: 750px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(51, 99, 71, 0.09);
+            padding: 35px;
+        }
+        .item-filters {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+        .item-filters input, .item-filters select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #bdf2c5;
+            font-size: 1rem;
+        }
+        #search-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: #0f8f47;
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background .2s;
+        }
+        #search-btn:hover {
+            background: #0bf284;
+        }
+        .item-list-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+        .item-card {
+            background: #f1fdf1;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(70,210,90,0.09);
+            padding: 18px 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            position: relative;
+        }
+        .item-card .item-icon {
+            font-size: 2rem;
+            margin-bottom: 6px;
+        }
+        .item-card .status {
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 4px 11px;
+            border-radius: 16px;
+            margin-top: 9px;
+        }
+        .status.fresh { background: #67e682; color: #0f5c2c; }
+        .status.expiring-soon { background: #fff69a; color: #735e00; }
+        .status.expired { background: #ffbdbd; color: #8e2222; }
+        .item-card .expiry {
+            font-size: 0.93rem; color: #348e4a;
+        }
+        .item-card .category-tag {
+            font-size: 0.88rem; color: #33755c; background:#eafff0;
+            padding: 3px 9px; border-radius: 10px;
+            margin-right: 7px;
+        }
+        .empty-message {
+            text-align: center;
+            color: #545454;
+            margin-top: 48px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="item-page-container">
+        <h2 style="color:#0f8f47; margin-bottom:16px;"><i class="fas fa-box"></i> Manage Your Items</h2>
+        <div class="item-filters">
+            <input type="text" id="search-item" placeholder="🔍 Search item by name or brand" />
+            <select id="category-filter">
+                <option value="">All Categories</option>
+                <option value="grocery">🛒 Grocery</option>
+                <option value="medicine">💊 Medicine</option>
+                <option value="dairy">🥛 Dairy</option>
+                <option value="vegetable">🥕 Vegetable</option>
+                <option value="fruit">🍎 Fruit</option>
+                <option value="other">➕ Other</option>
+            </select>
+            <select id="status-filter">
+                <option value="">All Status</option>
+                <option value="fresh">🌱 Fresh</option>
+                <option value="expiring-soon">⏳ Expiring Soon</option>
+                <option value="expired">⚠️ Expired</option>
+            </select>
+            <button id="search-btn"><i class="fas fa-search"></i> Search Item</button>
+        </div>
+        <div class="item-list-grid" id="item-list-grid">
+            <!-- Example Cards -->
+            <div class="item-card">
+                <span class="item-icon">🥛</span>
+                <div>
+                    <span class="category-tag">Dairy</span>
+                    <span class="expiry">Expiry: Oct 20, 2025</span>
+                </div>
+                <div class="status fresh">Fresh</div>
+                <div style="margin-top:8px;">Milk - Amul Gold, 1L</div>
+            </div>
+            <div class="item-card">
+                <span class="item-icon">🍎</span>
+                <div>
+                    <span class="category-tag">Fruit</span>
+                    <span class="expiry">Expiry: Oct 14, 2025</span>
+                </div>
+                <div class="status expiring-soon">Expiring Soon</div>
+                <div style="margin-top:8px;">Apple, Fresh, 500g</div>
+            </div>
+            <div class="item-card">
+                <span class="item-icon">💊</span>
+                <div>
+                    <span class="category-tag">Medicine</span>
+                    <span class="expiry">Expiry: Oct 12, 2025</span>
+                </div>
+                <div class="status expired">Expired</div>
+                <div style="margin-top:8px;">Paracetamol 500mg</div>
+            </div>
+            <!-- Add more items dynamically with JS as needed -->
+        </div>
+        <div id="empty-message" class="empty-message" style="display:none;">
+            No items found. Add items to get started!
+        </div>
+    </div>
+    <!-- Add your JavaScript for filter logic here if needed -->
+</body>
+</html>
