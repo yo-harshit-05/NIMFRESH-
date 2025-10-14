@@ -91,7 +91,7 @@
         <section class="quick-actions">
             <h2>Stock Actions</h2>
             <div class="action-grid">
-                <a href="scan.html" class="action-card scan">
+                <a href="scan.html" class="action-card scan" id="addItemBtn">
                     <i class="fas fa-plus-circle"></i>
                     <span>Add Item</span>
                 </a>
@@ -253,6 +253,349 @@
 </nav>
 
     <script src="stock.js"></script>
+        <!-- Add Item Modal -->
+    <div class="modal-overlay" id="addItemModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Item to Stock</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addItemForm">
+                    <div class="form-group">
+                        <label for="itemName">Item Name</label>
+                        <input type="text" id="itemName" placeholder="Enter item name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="itemCategory">Category</label>
+                        <select id="itemCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="Vegetables">Vegetables</option>
+                            <option value="Fruits">Fruits</option>
+                            <option value="Dairy">Dairy</option>
+                            <option value="Meat">Meat</option>
+                            <option value="Seafood">Seafood</option>
+                            <option value="Grains">Grains</option>
+                            <option value="Beverages">Beverages</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemQuantity">Quantity</label>
+                            <input type="text" id="itemQuantity" placeholder="e.g., 500g, 1kg" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="itemIcon">Item Icon</label>
+                            <select id="itemIcon" required>
+                                <option value="fas fa-carrot">Carrot</option>
+                                <option value="fas fa-apple-alt">Apple</option>
+                                <option value="fas fa-cheese">Cheese</option>
+                                <option value="fas fa-fish">Fish</option>
+                                <option value="fas fa-bread-slice">Bread</option>
+                                <option value="fas fa-egg">Egg</option>
+                                <option value="fas fa-wine-bottle">Milk/Bottle</option>
+                                <option value="fas fa-drumstick-bite">Chicken</option>
+                                <option value="fas fa-leaf">Leafy Greens</option>
+                                <option value="fas fa-weight">Weight</option>
+                                <option value="fas fa-cube">Package</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="purchaseDate">Purchase Date</label>
+                            <input type="date" id="purchaseDate" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="expiryDate">Expiry Date</label>
+                            <input type="date" id="expiryDate" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="itemNotes">Notes (Optional)</label>
+                        <textarea id="itemNotes" placeholder="Any additional notes about the item" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+                <button type="button" class="btn-primary" id="saveItemBtn">Add to Stock</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add Item Modal Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const addItemBtn = document.querySelector('.action-card.scan');
+            const modal = document.getElementById('addItemModal');
+            const closeBtn = document.getElementById('closeModal');
+            const cancelBtn = document.getElementById('cancelBtn');
+            const saveBtn = document.getElementById('saveItemBtn');
+            const form = document.getElementById('addItemForm');
+
+            // Set today's date as default for purchase date
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('purchaseDate').value = today;
+
+            // Set default expiry date (7 days from today)
+            const nextWeek = new Date();
+            nextWeek.setDate(nextWeek.getDate() + 7);
+            document.getElementById('expiryDate').value = nextWeek.toISOString().split('T')[0];
+
+            // Open modal when Add Item is clicked
+            addItemBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'flex';
+            });
+
+            // Close modal functions
+            function closeModal() {
+                modal.style.display = 'none';
+                form.reset();
+                // Reset dates to defaults
+                document.getElementById('purchaseDate').value = today;
+                document.getElementById('expiryDate').value = nextWeek.toISOString().split('T')[0];
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            cancelBtn.addEventListener('click', closeModal);
+
+            // Close modal when clicking outside
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Save item functionality
+            saveBtn.addEventListener('click', function() {
+                if (form.checkValidity()) {
+                    const itemData = {
+                        name: document.getElementById('itemName').value,
+                        category: document.getElementById('itemCategory').value,
+                        quantity: document.getElementById('itemQuantity').value,
+                        icon: document.getElementById('itemIcon').value,
+                        purchaseDate: document.getElementById('purchaseDate').value,
+                        expiryDate: document.getElementById('expiryDate').value,
+                        notes: document.getElementById('itemNotes').value
+                    };
+
+                    // Here you would typically send the data to your backend
+                    console.log('Adding item:', itemData);
+                    
+                    // For demo purposes, show success message
+                    alert(`"${itemData.name}" has been added to your stock successfully!`);
+                    
+                    closeModal();
+                    
+                    // In a real app, you would update the table here
+                    // updateStockTable(itemData);
+                    
+                } else {
+                    alert('Please fill in all required fields.');
+                }
+            });
+        });
+    </script>
+
+    <style>
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-body {
+            padding: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+            font-family: inherit;
+        }
+
+        .modal-footer {
+            padding: 20px 25px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #666;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 20px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-footer {
+                flex-direction: column;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-body {
+                padding: 20px;
+            }
+            
+            .modal-header {
+                padding: 15px 20px;
+            }
+        }
+    </style>
 </body>
 
 </html>
