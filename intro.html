@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NimFresh - Introduction</title>
+<link rel="stylesheet" href="landing.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    body {
+        overflow-x: hidden;
+    }
+
+    .intro-slide {
+        display: none;
+        animation: fadeInSlide 0.8s ease forwards;
+        text-align: left;
+        padding: 50px 35px;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        margin-bottom: 50px;
+        color: var(--white);
+    }
+
+    .intro-slide.active {
+        display: block;
+    }
+
+    /* Logo + Heading */
+    .slide-header {
+        display: flex;
+        align-items: center; /* vertically center logo with text */
+        gap: 25px;
+        margin-bottom: 25px;
+    }
+
+    .slide-header img {
+        width: 90px; /* enlarged logo */
+        height: 90px;
+        object-fit: contain;
+        filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
+    }
+
+    .slide-header h2 {
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .intro-slide p {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        color: rgba(255,255,255,0.9);
+    }
+
+    .feature-list {
+        list-style: none;
+        margin: 0 auto 35px;
+        padding: 0;
+        max-width: 500px;
+    }
+
+    .feature-list li {
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        justify-content: flex-start;
+        transition: all 0.3s ease;
+    }
+
+    .feature-list li i {
+        color: var(--secondary);
+        font-size: 1.6rem;
+        transition: transform 0.3s ease;
+    }
+
+    .feature-list li:hover i {
+        transform: scale(1.2) rotate(-10deg);
+    }
+
+    .connect-btn {
+        font-size: 1.4rem;
+        padding: 18px 30px;
+        border-radius: 15px;
+        background: linear-gradient(135deg, var(--secondary), #ff5722);
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .connect-btn:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 12px 30px rgba(255, 152, 0, 0.5);
+    }
+
+    @keyframes fadeInSlide {
+        0% { opacity: 0; transform: translateY(50px);}
+        100% { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Animated background */
+    .animated-bg {
+        background: linear-gradient(270deg, #667eea, #764ba2, #2e7d32, #4caf50);
+        background-size: 800% 800%;
+        animation: gradientBG 20s ease infinite;
+    }
+
+    @keyframes gradientBG {
+        0%{background-position:0% 50%;}
+        50%{background-position:100% 50%;}
+        100%{background-position:0% 50%;}
+    }
+
+    /* Floating icons */
+    .floating-icon {
+        font-size: 2.5rem;
+        color: rgba(255, 255, 255, 0.15);
+        position: absolute;
+        animation: float 8s ease-in-out infinite;
+    }
+
+    .floating-icon:nth-child(1){ top:10%; left:10%; animation-delay:0s;}
+    .floating-icon:nth-child(2){ top:20%; right:15%; animation-delay:2s;}
+    .floating-icon:nth-child(3){ bottom:30%; left:15%; animation-delay:4s;}
+    .floating-icon:nth-child(4){ bottom:20%; right:10%; animation-delay:6s;}
+
+    @keyframes float {
+        0%,100%{transform: translateY(0) rotate(0deg);}
+        50%{transform: translateY(-25px) rotate(15deg);}
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+        .slide-header img { width: 70px; height: 70px;}
+        .slide-header h2 { font-size: 2rem; }
+        .intro-slide p { font-size: 1rem; }
+        .feature-list li { font-size: 1rem; gap: 12px; }
+        .feature-list li i { font-size: 1.4rem; }
+        .connect-btn { font-size: 1.2rem; padding: 15px 25px; }
+        .intro-slide { padding: 35px 20px; border-radius: 18px;}
+    }
+</style>
+</head>
+<body>
+<div class="landing-container">
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-icon"><i class="fas fa-apple-alt"></i></div>
+        <div class="floating-icon"><i class="fas fa-carrot"></i></div>
+        <div class="floating-icon"><i class="fas fa-fish"></i></div>
+        <div class="floating-icon"><i class="fas fa-cheese"></i></div>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- Slide 1 -->
+        <div class="intro-slide active" id="slide1">
+            <div class="slide-header">
+                <img src="images/logo.png" alt="NimFresh Logo">
+                <h2>Welcome to NimFresh</h2>
+            </div>
+            <p>Smart Food Monitoring at your fingertips.</p>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> Track food freshness in real-time</li>
+                <li><i class="fas fa-check-circle"></i> Get notifications for expiry dates</li>
+                <li><i class="fas fa-check-circle"></i> Connect multiple storage devices</li>
+            </ul>
+            <button class="connect-btn" onclick="nextSlide()">
+                Next <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="intro-slide" id="slide2">
+            <div class="slide-header">
+                <img src="images/logo.png" alt="NimFresh Logo">
+                <h2>Why Choose NimFresh?</h2>
+            </div>
+            <p>Make your food smarter and fresher.</p>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> Save money by reducing food waste</li>
+                <li><i class="fas fa-check-circle"></i> Easy-to-use mobile app integration</li>
+                <li><i class="fas fa-check-circle"></i> Data privacy & secure monitoring</li>
+            </ul>
+            <button class="connect-btn" onclick="goToIndex()">
+                Get Started <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function nextSlide() {
+        document.getElementById('slide1').classList.remove('active');
+        document.getElementById('slide2').classList.add('active');
+    }
+
+    function goToIndex() {
+        window.location.href = 'index.html';
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NimFresh - Upload Bill</title>
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.1.1/dist/tesseract.min.js"></script>
+<style>
+    .food-items-container { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
+    .food-card { background: #f0fff4; padding: 15px; border-radius: 10px; width: 150px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+    .food-card h4 { margin: 5px 0; font-size: 16px; }
+    .food-card p { margin: 0; font-size: 14px; color: #555; }
+</style>
+</head>
+<body>
+
+<header class="dashboard-header">
+    <div class="header-content">
+        <div class="logo-section">
+            <img src="images/logo.png" alt="NimFresh Logo" class="logo">
+            <div class="logo-text">
+                <h1>NimFresh</h1>
+                <p>Bring Freshness To Your Life</p>
+            </div>
+        </div>
+        <div class="user-welcome">
+            <span class="welcome-text" id="welcome-text">Welcome, User</span>
+            <div class="status-indicator">
+                <div class="status-dot connected"></div>
+                <span>Device Connected</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="dashboard-main">
+    <section class="upload-bill-section">
+        <h2>Upload Your Bill</h2>
+        <input type="file" id="bill-file" accept=".jpg,.jpeg,.png" />
+        <p id="ocr-status" style="margin-top:10px;color:#555;"></p>
+        <div class="food-items-container" id="food-items-container"></div>
+    </section>
+</main>
+
+<script>
+const fileInput = document.getElementById('bill-file');
+const container = document.getElementById('food-items-container');
+const status = document.getElementById('ocr-status');
+
+fileInput.addEventListener('change', async () => {
+    const file = fileInput.files[0];
+    if (!file) return;
+
+    container.innerHTML = "";
+    status.textContent = "Processing...";
+
+    // Run OCR using Tesseract.js
+    const { data: { text } } = await Tesseract.recognize(file, 'eng', { logger: m => console.log(m) });
+
+    status.textContent = "Parsing items...";
+
+    // Simple parser: each line is treated as an item (adjust as needed)
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    lines.forEach(line => {
+        // Extract name and quantity if possible (basic)
+        // e.g., "Apples 1kg 120" → name = "Apples", quantity = "1kg"
+        const parts = line.split(/\s+/);
+        if (parts.length >= 2) {
+            const name = parts[0];
+            const quantity = parts[1];
+            const card = document.createElement('div');
+            card.className = 'food-card';
+            card.innerHTML = `<h4>${name}</h4><p>${quantity}</p>`;
+            container.appendChild(card);
+        }
+    });
+
+    status.textContent = "Done! Items added below.";
+});
+</script>
+</body>
+</html>
