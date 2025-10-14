@@ -1071,3 +1071,68 @@ body {
     z-index: -1;
     pointer-events: none;
 }
+.food-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.food-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.food-info {
+    font-size: 0.9rem;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+}
+
+.food-info span:first-child {
+    font-weight: 500;
+}
+.food-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.item-image {
+    font-size: 2rem;
+    margin-right: 15px;
+    width: 40px;
+    text-align: center;
+}
+
+.item-details h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.item-status {
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+/* Highlight colors */
+.status-fresh { background: #d4edda; color: #155724; }
+.status-warning { background: #fff3cd; color: #856404; }
+.status-danger { background: #f8d7da; color: #721c24; }
+
+.item-details p {
+    margin: 2px 0;
+    font-size: 0.9rem;
+    color: #555;
+}

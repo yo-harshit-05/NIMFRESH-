@@ -19,6 +19,7 @@
     <div class="floating-food leaf"><i class="fas fa-leaf"></i></div>
     <div class="floating-food egg"><i class="fas fa-egg"></i></div>
     <div class="floating-food milk"><i class="fas fa-wine-bottle"></i></div>
+
     <!-- Header -->
     <header class="dashboard-header">
         <div class="header-content">
@@ -52,11 +53,8 @@
     <main class="dashboard-main">
         <!-- Quick Stats -->
         <section class="stats-section">
-            <!-- Sensor Readings -->
             <div class="stat-card sensor">
-                <div class="stat-icon">
-                    <i class="fas fa-thermometer-half"></i>
-                </div>
+                <div class="stat-icon"><i class="fas fa-thermometer-half"></i></div>
                 <div class="stat-info">
                     <h3 id="temperature">4°C</h3>
                     <p>Temperature</p>
@@ -66,9 +64,7 @@
             </div>
 
             <div class="stat-card sensor">
-                <div class="stat-icon">
-                    <i class="fas fa-tint"></i>
-                </div>
+                <div class="stat-icon"><i class="fas fa-tint"></i></div>
                 <div class="stat-info">
                     <h3 id="humidity">65%</h3>
                     <p>Humidity</p>
@@ -78,9 +74,7 @@
             </div>
 
             <div class="stat-card sensor">
-                <div class="stat-icon">
-                    <i class="fas fa-weight-hanging"></i>
-                </div>
+                <div class="stat-icon"><i class="fas fa-weight-hanging"></i></div>
                 <div class="stat-info">
                     <h3 id="total-weight">8.2kg</h3>
                     <p>Total Weight</p>
@@ -89,6 +83,7 @@
                 <div class="stat-wave"></div>
             </div>
         </section>
+
         <section class="sensor-section">
             <h2>Live Sensor Readings</h2>
             <div class="sensor-grid">
@@ -199,22 +194,40 @@
             </div>
         </section>
 
-        <!-- Food Items -->
+        <!-- Food Items Section -->
         <section class="food-section">
             <div class="section-header">
                 <h2>Your Food Items</h2>
-                <div class="filter-tabs">
-                    <button class="filter-btn active" data-filter="all">All Items</button>
-                    <button class="filter-btn" data-filter="fresh">Fresh</button>
-                    <button class="filter-btn" data-filter="warning">Use Soon</button>
-                    <button class="filter-btn" data-filter="danger">Discard</button>
-                </div>
             </div>
 
             <div class="food-items-container" id="food-items-container">
-                <!-- Food items will be loaded here by JavaScript -->
+                <!-- Example Food Item -->
+                <div class="food-item">
+                    <div class="food-name">Carrots</div>
+                    <div class="food-info">
+                        <span>Status: Fresh</span>
+                        <span>Purchased: 12-10-2025</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-name">Milk</div>
+                    <div class="food-info">
+                        <span>Status: Use Soon</span>
+                        <span>Purchased: 10-10-2025</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-name">Cheese</div>
+                    <div class="food-info">
+                        <span>Status: Discard</span>
+                        <span>Purchased: 05-10-2025</span>
+                    </div>
+                </div>
             </div>
         </section>
+
     </main>
 
     <!-- Bottom Navigation -->
